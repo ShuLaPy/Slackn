@@ -6,16 +6,17 @@
   </a>
 </p>
 
-A simple minimalistic slack clone app, created to tryout the Symentic-UI Library and to get my hands dirty with the Firebase.
+A simple minimalistic slack clone app, created to try out the Semantic-UI Library and to get my hands dirty with the Firebase.
 
 ---
-
 ## Tech Stack
 
 - **React**
     - For fronend User Interface of the app
+- **TypeScript**
+    - This react template using Typescript as primary language
 - **Semantic UI**
-    - For most of the component building
+    - For most of the component building and Styling
 - **Firebase**
     - For realtime database
 
