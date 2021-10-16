@@ -1,4 +1,6 @@
-# Slack Clone
+# Slack Clone | 🚧 In-Progress
+
+[![Build](https://img.shields.io/travis/ShuLaPy/slack-clone/main.svg?label=TravisCI+Build)](https://app.travis-ci.com/ShuLaPy/slack-clone)
 
 <p align="center">
   <a href="#">
