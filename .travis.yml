@@ -4,6 +4,7 @@ node_js:
   - lts/*
 
 script:
+  - yarn run test
   - yarn run build
 
 deploy:
@@ -18,8 +19,8 @@ notifications:
   webhooks:
     urls:
       - https://hooks.spike.sh/0e76c5e2468db67b46be/push-events
-    on_success: always # default: always
+    on_success: never # default: always
     on_failure: always # default: always
-    on_start:   always # default: never
+    on_start:   never # default: never
     on_cancel:  always # default: always
     on_error:   always # default: always
