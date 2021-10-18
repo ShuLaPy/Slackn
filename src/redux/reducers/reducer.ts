@@ -1,26 +1,25 @@
-import * as UserConstants from "../constants/actionTypes";
+import * as actionTypes from "../constants/actionTypes";
 
-export interface NotesState {
-  usersData: any;
+export interface UserState {
+  currentUser: any;
   loading: boolean;
   error: boolean;
 }
 
 const instialState = {
-  usersData: {},
-  loading: false,
+  currentUser: null,
+  loading: true,
   error: false,
 };
 
-export type Action = { type: "FETCH_USER"; payload: string };
-
-export const UserReducer = (
-  state: NotesState = instialState,
-  action: Action
-) => {
+export const UserReducer = (state: UserState = instialState, action: any) => {
   switch (action.type) {
-    case UserConstants.FETCH_USER:
-      return { ...state, loading: true };
+    case actionTypes.SET_USER:
+      return {
+        ...state,
+        currentUser: action.payload.currentUser,
+        loading: false,
+      };
     default:
       return state;
   }

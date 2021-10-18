@@ -1,6 +1,8 @@
-export type Action = { type: "ADD_NOTE"; payload: string };
+import * as actionTypes from "../constants/actionTypes";
 
-export const addNote = (note: string): Action => ({
-  type: "ADD_NOTE",
-  payload: note,
+export const setUser = (user: any) => ({
+  type: actionTypes.SET_USER,
+  payload: {
+    currentUser: user,
+  },
 });
