@@ -1,5 +1,6 @@
 import React from "react";
 import { Menu } from "semantic-ui-react";
+import Channels from "./Channels";
 import UserPanel from "./UserPanel";
 
 const SidePanel = () => {
@@ -12,6 +13,7 @@ const SidePanel = () => {
       style={{ background: "#016DBF", fontSize: "1.2rem" }}
     >
       <UserPanel />
+      <Channels />
     </Menu>
   );
 };
