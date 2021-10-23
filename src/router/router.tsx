@@ -11,7 +11,7 @@ import Login from "../components/Auth/Login";
 import Register from "../components/Auth/Register";
 import Spinner from "../components/Spinner";
 import firebase from "../firebase";
-import { setUser } from "../redux/actions/action";
+import { clearUser, setUser } from "../redux/actions/action";
 
 function AppRouter() {
   const history = useHistory();
@@ -24,6 +24,9 @@ function AppRouter() {
       if (user) {
         dispatch(setUser(user));
         history.push("/");
+      } else {
+        dispatch(clearUser());
+        history.push("/login");
       }
     });
   }, []);

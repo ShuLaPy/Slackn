@@ -6,3 +6,16 @@ export const setUser = (user: any) => ({
     currentUser: user,
   },
 });
+
+export const clearUser = () => ({
+  type: actionTypes.CLEAR_USER,
+});
+
+export const setCurrentChannel = (channel: any) => {
+  return {
+    type: actionTypes.SET_CURRENT_CHANNEL,
+    payload: {
+      currentChannel: channel,
+    },
+  };
+};
