@@ -12,14 +12,14 @@ const Messages = () => {
   const [messages, setMessages] = useState<firebase.database.DataSnapshot[]>(
     []
   );
-
+  const [uniqueUser, setUniqueUser] = useState(0);
   const user = useSelector((state: any) => state.user);
   const { currentUser } = user;
   const channel = useSelector((state: any) => state.channel);
   const { currentChannel } = channel;
 
   useEffect(() => {
-    console.log("CurrentChannel: ", currentChannel);
+    if (!currentChannel) return;
     addListener(currentChannel?.id);
     // return () => {
     //   cleanup;
@@ -32,6 +32,18 @@ const Messages = () => {
       loadedMessages.push(snap.val());
       setMessages(loadedMessages);
     });
+
+    countUniqueUser(loadedMessages);
+  };
+
+  const countUniqueUser = (messages: any[]) => {
+    const uniqueUsers = messages.reduce((acc, message) => {
+      if (!acc.includes(message.user.name)) {
+        acc.push(message.user.name);
+      }
+      return acc;
+    }, []);
+    setUniqueUser(uniqueUsers.length);
   };
 
   const displayMessages = (messages: firebase.database.DataSnapshot[]) => {
@@ -44,7 +56,7 @@ const Messages = () => {
 
   return (
     <div className="message-box">
-      <MessagesHeader />
+      <MessagesHeader channelName={currentChannel?.name} users={uniqueUser} />
       <Segment>
         <Comment.Group className="comment-box">
           {displayMessages(messages)}
