@@ -20,6 +20,7 @@ const Messages = () => {
 
   useEffect(() => {
     if (!currentChannel) return;
+    setMessages([]);
     addListener(currentChannel?.id);
     // return () => {
     //   cleanup;
