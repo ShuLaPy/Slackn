@@ -27,14 +27,14 @@ const Messages = () => {
   }, [currentChannel]);
 
   const addListener = (channelId: string) => {
-    const loadedMessages: firebase.database.DataSnapshot[] = [];
     messageRef.child(channelId).on("child_added", (snap) => {
-      loadedMessages.push(snap.val());
-      setMessages(loadedMessages);
+      setMessages((prevState) => [...prevState, snap.val()]);
     });
-
-    countUniqueUser(loadedMessages);
   };
+
+  useEffect(() => {
+    countUniqueUser(messages);
+  }, [messages]);
 
   const countUniqueUser = (messages: any[]) => {
     const uniqueUsers = messages.reduce((acc, message) => {
