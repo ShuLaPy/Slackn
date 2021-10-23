@@ -4,6 +4,7 @@ import { Button, Input, Segment } from "semantic-ui-react";
 import { v4 as uuidv4 } from "uuid";
 import firebase from "../../firebase";
 import FileModal from "./FileModal";
+import ProgressBar from "./ProgressBar";
 const MessageForm = (props: any) => {
   const { messageRef }: { messageRef: any } = props;
   const [message, setMessage] = useState("");
@@ -144,6 +145,9 @@ const MessageForm = (props: any) => {
         closeModal={() => setOpen(false)}
         uploadFile={uploadFile}
       />
+      {uploadstate === "uploading" && (
+        <ProgressBar className="progress_bar" percentUploaded={percentage} />
+      )}
     </Segment>
   );
 };
