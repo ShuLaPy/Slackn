@@ -32,3 +32,7 @@
 .message_image {
     padding: 1em;
 }
+
+.ui.comments {
+    max-width: 100%;
+}

@@ -8,7 +8,7 @@ const MessagesHeader = (props: any) => {
       <Header fluid="true" as="h2" floated="left" style={{ marginBottom: 0 }}>
         <span>
           {channelName}
-          <Icon name="star outline" color="black" />
+          <Icon name="bookmark outline" color="black" />
         </span>
         <Header.Subheader>{users} Users</Header.Subheader>
       </Header>

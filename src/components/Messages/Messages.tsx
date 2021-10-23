@@ -20,11 +20,11 @@ const Messages = () => {
 
   useEffect(() => {
     if (!currentChannel) return;
-    setMessages([]);
+    setMessages((prevState) => []);
     addListener(currentChannel?.id);
-    // return () => {
-    //   cleanup;
-    // };
+    return () => {
+      messageRef.off();
+    };
   }, [currentChannel]);
 
   const addListener = (channelId: string) => {
