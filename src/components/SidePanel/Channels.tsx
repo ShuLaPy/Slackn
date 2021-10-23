@@ -24,13 +24,15 @@ const Channels = () => {
     return () => {
       channelRef.off();
     };
-  }, []);
+  }, [channelRef]);
+
+  useEffect(() => {
+    dispatch(setCurrentChannel(channels[0]));
+  }, [channels]);
 
   const addListener = () => {
-    let loadedChannels: firebase.database.DataSnapshot[] = [];
     channelRef.on("child_added", (snap) => {
-      loadedChannels.push(snap.val());
-      setChannels(loadedChannels);
+      setChannels((pervState) => [...pervState, snap.val()]);
     });
   };
 
@@ -82,7 +84,7 @@ const Channels = () => {
     dispatch(setCurrentChannel(channel));
   };
 
-  const displayChannels = () => {
+  const displayChannels = (channels: any[]) => {
     return channels.map((channel: any) => (
       <Menu.Item
         key={channel.key}
@@ -106,7 +108,7 @@ const Channels = () => {
           ( {channels.length} ){" "}
           <Icon name="add" onClick={() => setOpen(true)} />
         </Menu.Item>
-        {displayChannels()}
+        {channels.length && displayChannels(channels)}
       </Menu.Menu>
 
       <Modal
