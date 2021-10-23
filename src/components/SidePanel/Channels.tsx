@@ -89,7 +89,7 @@ const Channels = () => {
         onClick={() => saveCurrentChannel(channel)}
         name={channel.name}
         style={{ opacity: 0.7 }}
-        active={channel.id === currentChannel.id}
+        active={channel?.id === currentChannel?.id}
       >
         # {channel.name}
       </Menu.Item>
