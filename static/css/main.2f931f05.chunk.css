@@ -1,0 +1,2 @@
+.app,body,html{height:100vh;background:#eee;padding:1em}.comment-box{height:calc(100vh - 250px);overflow-y:scroll}.message-box{position:relative;height:100%;width:100%}.message-form{position:absolute!important;bottom:.5em;width:100%;left:0;right:1em;z-index:200}.message_self{border-left:2px solid orange;padding-left:8px}.message_image{padding:1em}
+/*# sourceMappingURL=main.2f931f05.chunk.css.map */
